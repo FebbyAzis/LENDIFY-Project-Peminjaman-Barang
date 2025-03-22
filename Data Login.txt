@@ -1,0 +1,12 @@
+--INFORMASI AKUN UNTUK LOGIN--
+
+role Admin
+username : admin
+password : admin123
+
+role Users
+username : febbyazis
+password : febbyazis123
+
+username : ikbal183
+password : ikbal183
