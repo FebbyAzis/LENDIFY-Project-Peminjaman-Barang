@@ -16,7 +16,7 @@ class AdminController extends Controller
         $user = Users::count('id');
         $barang = Barang::count('id');
         $stok = Barang::sum('stok');
-        $pinjaman = Pinjaman::where('status_pinjaman', 1)->count('id');
+        $pinjaman = Pinjaman::where('status_pinjaman', 1)->sum('jumlah_pinjaman');
         return view('admin.dashboard', compact('user', 'barang', 'stok', 'pinjaman'));
     }
 
@@ -26,7 +26,7 @@ class AdminController extends Controller
 
         $b = $barangs->map(function ($barang) {
             $totalDipinjam = $barang->pinjaman->sum('stok');
-            $totalPinjaman = $barang->pinjaman->count();
+            $totalPinjaman = $barang->pinjaman->sum('jumlah_pinjaman');
             
             return [
                 'id' => $barang->id,
@@ -39,6 +39,7 @@ class AdminController extends Controller
                 'total_pinjaman' => $totalPinjaman
             ];
         });
+
         return view('admin.barang', compact('b'));
     }
 
@@ -81,7 +82,7 @@ class AdminController extends Controller
         
         $b = Barang::find($id);
         $p = Pinjaman::where('barang_id', $id)->orderBy('id', 'desc')->get();
-        $total = Pinjaman::where('barang_id', $id)->count('id');
+        $total = Pinjaman::where('barang_id', $id)->sum('jumlah_pinjaman');
 
         return view('admin.detail_barang', compact('user', 'b', 'p', 'total'));
     }

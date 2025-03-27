@@ -80,6 +80,7 @@
                   <tr>
                     <th>No</th>
                     <th>Nama barang</th>
+                    <th>Jumlah Dipinjam</th>
                     <th>Tanggal Pinjaman</th>
                     <th>Tanggal Pengembalian</th>
                     <th>Status Pinjaman</th>
@@ -91,6 +92,7 @@
                         <tr>
                             <td>{{$no+1}}</td>
                             <td>{{$item->barang->nama_barang}}</td>
+                            <td>{{$item->jumlah_pinjaman}}</td>
                             <td>{{date("d/M/Y", strtotime($item->tgl_pinjaman));}}</td>
                             @if ($item->tgl_pengembalian == null)
                                 <td>-</td>
@@ -130,6 +132,7 @@
                     <tr>
                       <th>No</th>
                       <th>Nama barang</th>
+                      <th>Jumlah Dipinjam</th>
                       <th>Tanggal Pinjaman</th>
                       <th>Tanggal Pengembalian</th>
                       <th>Status Pinjaman</th>
@@ -141,6 +144,7 @@
                           <tr>
                               <td>{{$no+1}}</td>
                               <td>{{$item->barang->nama_barang}}</td>
+                              <td>{{$item->jumlah_pinjaman}}</td>
                               <td>{{date("d/M/Y", strtotime($item->tgl_pinjaman));}}</td>
                               @if ($item->tgl_pengembalian == null)
                                   <td>-</td>
@@ -190,6 +194,10 @@
                     </div>
                   <label>Nama Barang</label>
                   <input type="text" class="form-control" value="{{$item->barang->nama_barang}}" required disabled>
+                </div>
+                <div class="form-group">
+                  <label>Jumlah Pinjaman</label>
+                  <input type="text" class="form-control" value="{{$item->jumlah_pinjaman}}" required disabled>
                 </div>
                 <div class="form-group">
                   <label>Tanggal Pinjaman</label>

@@ -130,6 +130,7 @@
                     <th>No</th>
                     <th>Nama Peminjam</th>
                     <th>Nama Barang</th>
+                    <th>Jumlah Pinjaman</th>
                     <th>Tanggal Pinjaman</th>
                     <th>Tanggal Pengembalian</th>
                     <th>Status Pinjaman</th>
@@ -142,6 +143,7 @@
                             <td>{{$no+1}}</td>
                             <td>{{ $item->users->nama_depan }} {{ $item->users->nama_belakang }}</td>
                             <td>{{ $item->barang->nama_barang }}</td>
+                            <td>{{ $item->jumlah_pinjaman }}</td>
                             <td>{{date("d/M/Y", strtotime($item->tgl_pinjaman));}}</td>
                             @if ($item->tgl_pengembalian == null)
                                 <td>-</td>

@@ -145,12 +145,17 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <div class="form-group">
+                    
                         <label>Nama Peminjam</label>
                         <input type="text" class="form-control" value="{{$user->nama_depan}} {{$user->nama_belakang}}" required disabled>
                       </div>
+                      <div class="form-group">
                     <label>Nama Barang</label>
                     <input type="text" class="form-control" value="{{$item['nama_barang']}}" required disabled>
+                  </div>
+                  <div class="form-group">
+                    <label>Jumlah Pinjaman</label>
+                    <input type="number" class="form-control" value="1" name="jumlah_pinjaman" required>
                   </div>
                   <div class="form-group">
                     <label>Tanggal Pinjaman</label>

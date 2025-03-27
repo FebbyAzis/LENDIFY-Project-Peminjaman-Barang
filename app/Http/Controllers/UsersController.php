@@ -30,7 +30,7 @@ class UsersController extends Controller
 
         $b = $barangs->map(function ($barang) {
             $totalDipinjam = $barang->pinjaman->sum('stok');
-            $totalPinjaman = $barang->pinjaman->count();
+            $totalPinjaman = $barang->pinjaman->sum('jumlah_pinjaman');
             
             return [
                 'id' => $barang->id,
@@ -61,6 +61,7 @@ class UsersController extends Controller
         $save = new Pinjaman;
         $save->users_id = $request->users_id;
         $save->barang_id = $request->barang_id;
+        $save->jumlah_pinjaman = $request->jumlah_pinjaman;
         $save->tgl_pinjaman = $request->tgl_pinjaman;
         $save->tgl_pengembalian = $request->tgl_pengembalian;
         $save->save(); 
